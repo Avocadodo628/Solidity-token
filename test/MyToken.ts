@@ -1,5 +1,8 @@
 import { expect } from "chai";
-import { ethers } from "hardhat";
+import { network } from "hardhat";
+
+const { ethers } = await network.connect();
+
 
 const { parseUnits, ZeroAddress } = ethers;
 
@@ -10,11 +13,11 @@ describe("MyToken", function () {
     const MyToken = await ethers.getContractFactory("MyToken");
     const token = await MyToken.connect(owner).deploy("MyToken", "MTK");
     await token.waitForDeployment();
-
+console.log("Token地址:"+await token.getAddress());
     return { token, owner, addr1, addr2, spender };
   }
 
-  describe("deploy", function () {
+  describe("deploy", function () { 
     it("应当成功部署并初始化元数据与初始供应", async function () {
       const { token, owner } = await deployMyTokenFixture();
 
@@ -73,5 +76,4 @@ describe("MyToken", function () {
       ).to.be.reverted; // 不强绑具体错误，避免不同实现差异
     });
   });
-
- 
+});

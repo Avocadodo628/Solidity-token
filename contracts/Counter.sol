@@ -72,7 +72,7 @@ contract Counter {
         _bumpZ(v);
     }
 
-    function _bumpZ(uint256 v) internal {
+    function _bumpZ(uint256 v) internal {s z
         z += v;
     }
 
