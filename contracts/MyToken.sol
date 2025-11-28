@@ -15,3 +15,4 @@ contract MyToken is ERC20, Ownable {
         _mint(to, amount);
     }
 }
+//可以写一个mint 2：to可能是一个list，amount也是一个list

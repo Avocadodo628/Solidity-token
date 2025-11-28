@@ -2,8 +2,6 @@ import { expect } from "chai";
 import { network } from "hardhat";
 
 const { ethers } = await network.connect();
-
-
 const { parseUnits, ZeroAddress } = ethers;
 
 describe("MyToken", function () {
